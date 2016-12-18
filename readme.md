@@ -32,6 +32,7 @@ After any changes to the .yaml file.  You should now be able to go to softwarehe
 
 We will be using Sequel Pro for the database. This video explains how to link the two.
 https://www.youtube.com/watch?v=rW4GwUuvsl4
+
 https://www.sequelpro.com/
 
 
