@@ -7,6 +7,7 @@ Begin by setting up the Homestead virtual machine: https://laravel.com/docs/5.3/
 Somewhere on your computer create a folder named SH_DevFolder. This is the folder to be shared with Homestead. Initially/Default folder is "Code".  This takes the place of Code.  
 
 Homestead.yaml:
+
 folders:
     - map: ~/(WHERE YOU PLACED THIS FILE)/SH_DevFolder
       to: /home/vagrant/SH_DevFolder
