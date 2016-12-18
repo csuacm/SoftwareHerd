@@ -9,12 +9,18 @@ Somewhere on your computer create a folder named SH_DevFolder. This is the folde
 Homestead.yaml:
 
 folders:
+
     - map: ~/(WHERE YOU PLACED THIS FILE)/SH_DevFolder
+    
       to: /home/vagrant/SH_DevFolder
+      
 
 sites:
+
     - map: softwareherd.app
+    
       to: /home/vagrant/SH_DevFolder/software_herd/public
+      
       
 Within your VM (SSH) go into SH_DevFolder and run this command.  This creates the project in your shared folder.
 composer create-project laravel/laravel software_herd --prefer-dist
