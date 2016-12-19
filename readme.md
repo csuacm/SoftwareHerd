@@ -1,5 +1,6 @@
 Software Herd:
 
+
 This repository is for the files in your software_herd project folder on your computer.  You could use it within the VM as well.  
 
 Begin by setting up the Homestead virtual machine: https://laravel.com/docs/5.3/homestead
