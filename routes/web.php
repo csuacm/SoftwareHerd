@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('project/{id}', 'ProjectController@project');
+Route::get('project_library', 'ProjectController@projects');
 
 
 Auth::routes();

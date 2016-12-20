@@ -21,5 +21,9 @@ class ProjectController extends Controller
 		return view('project', array('project' => $project));
 	}
 
+	public function projects() {
+		$projects = Project::orderBy('created_at', 'asc')->get();
+		return view('project_library', array('projects' => $projects));
+	}
 
 }

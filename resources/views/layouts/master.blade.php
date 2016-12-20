@@ -40,6 +40,7 @@
 		<a href="\">Home</a>
 		<a href="#">About</a>
 		<a href="#">Contact</a>
+		<a href="\project_library">Browse Projects</a>
 		@if (Auth::guest())
 			<a href="{{ url('/login') }}">Login</a>
 			<a href="{{ url('/register') }}">Register</a>
