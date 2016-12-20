@@ -16,5 +16,10 @@ class ProjectController extends Controller
 		return view('home');
 	}
 
+	public function project($id) {
+		$project = Project::find($id);
+		return view('project', array('project' => $project));
+	}
+
 
 }
