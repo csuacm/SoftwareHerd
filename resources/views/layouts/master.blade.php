@@ -44,6 +44,7 @@
 			<a href="{{ url('/login') }}">Login</a>
 			<a href="{{ url('/register') }}">Register</a>
 		@else
+			<a href="\new_project">New Project</a>
 			<a href="{{ url('/logout') }}"
 	           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 	           Logout
