@@ -16,6 +16,16 @@ Route::get('/', function () {
 });
 
 
+
 Auth::routes();
+
+Route::get('/new_project', function () {
+    return view('new_project');
+});
+
+Route::post('/createproject', [
+	'uses' => 'ProjectController@projectCreateProject',
+	'as' => 'project.create'
+	]);
 
 Route::get('/home', 'HomeController@index');

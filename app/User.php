@@ -9,6 +9,12 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function projects()
+    {
+        return $this->hasMany('SoftwareHerd\Project');
+    }
+
+
     /**
      * The attributes that are mass assignable.
      *
