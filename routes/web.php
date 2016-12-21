@@ -11,11 +11,26 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () { //Welcome route
     return view('welcome');
 });
 
 
+Route::get('project/{id}', 'ProjectController@project'); //Route for individual project
+Route::get('project_library', 'ProjectController@projects'); //Route for project library
+
+Route::get('user/{id}', 'UserController@user'); //Route for individual project
+
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/new_project', function () { //view for creating new project
+    return view('new_project');
+});
+
+Route::post('/createproject', [ //new project creation
+	'uses' => 'ProjectController@projectCreateProject',
+	'as' => 'project.create'
+	]);
+
+Route::get('/home', 'HomeController@index'); //Home route
