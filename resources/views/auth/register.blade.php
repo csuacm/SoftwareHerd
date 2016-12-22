@@ -42,7 +42,7 @@
                             <label for="github_link" class="col-md-4 control-label">Github Link</label>
 
                             <div class="col-md-6">
-                                <input id="github_link" type="text" class="form-control" name="github_link" value="{{ old('github_link') }}" required autofocus>
+                                <input id="github_link" type="text" class="form-control" name="github_link" value="{{ old('github_link') }}"  autofocus>
 
                                 @if ($errors->has('github_link'))
                                     <span class="help-block">
