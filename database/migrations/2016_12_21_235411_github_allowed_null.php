@@ -13,9 +13,12 @@ class GithubAllowedNull extends Migration
      */
     public function up()
     {
-        DB::query("ALTER TABLE `homestead`.`users` 
-                    CHANGE COLUMN `github_link` `github_link` VARCHAR(100) CHARACTER SET 'utf8' NULL ;
-                    ");
+         Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('github_link');
+        });
+          Schema::table('users', function (Blueprint $table) {
+            $table->string('github_link', 100)->nullable();
+        });
     }
 
     /**
@@ -26,7 +29,10 @@ class GithubAllowedNull extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->string('github_link', 100);
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('github_link');
         });
     }
 }
