@@ -19,8 +19,10 @@ Route::get('/', function () { //Welcome route
 Route::get('project/{id}', 'ProjectController@project'); //Route for individual project
 Route::get('project_library', 'ProjectController@projects'); //Route for project library
 
-Route::get('user/{id}', 'UserController@user'); //Route for individual project
 
+
+Route::get('user/{id}', 'UserController@user'); //Route for individual project
+Route::get('members/{id}', 'User_ProjectsController@project_members'); //Route for project members
 
 Auth::routes();
 
