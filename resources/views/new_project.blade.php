@@ -14,7 +14,11 @@ New Project
              <div class="form-group">
                 <textarea class="form-control" name="title" id="new-project" rows="5" placeholder="Your Project Title"></textarea>
                 <textarea class="form-control" name="description" id="new-project" rows="5" placeholder="Your Project Description"></textarea>
-            </div>
+                <textarea class="form-control" name="github_link" id="new-project" rows="2" placeholder="GitHub Link Here"></textarea>
+                <textarea class="form-control" name="slack_link" id="new-project" rows="2" placeholder="Slack Link Here"></textarea>
+                <textarea class="form-control" name="website_link" id="new-project" rows="2" placeholder="Website Link Here"></textarea>
+                <textarea class="form-control" name="get_involved_pitch" id="new-project" rows="5" placeholder="Explain how to get involved"></textarea>
+                            </div>
              <button type="submit" class="btn btn-primary">Create Post</button>
              <input type="hidden" value="{{ Session::token() }}" name="_token">
               {{ csrf_field() }}
