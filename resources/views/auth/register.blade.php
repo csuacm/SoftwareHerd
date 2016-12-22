@@ -38,6 +38,21 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('github_link') ? ' has-error' : '' }}">
+                            <label for="github_link" class="col-md-4 control-label">Github Link</label>
+
+                            <div class="col-md-6">
+                                <input id="github_link" type="text" class="form-control" name="github_link" value="{{ old('github_link') }}" required autofocus>
+
+                                @if ($errors->has('github_link'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('github_link') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
