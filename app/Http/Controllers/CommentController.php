@@ -4,20 +4,15 @@ namespace SoftwareHerd\Http\Controllers;
 use SoftwareHerd\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class CommentController extends Controller
 {
-	public function projectCreatePost(request $request)
+	public function projectCreateComment(request $request)
 	{
-		$post = new Post();
-		$post->title = $request['title'];
-		$post->description = $request['description'];
-		$post->posting_project = $request->project()->id;
+		$comment = new Comment();
+		$comment->title = $request['title'];
+		$comment->description = $request['description'];
+		$comment->posting_project = $request->project()->id;
 		//$request->projects()->-posts->save($post);
 		return view('home');
-	}
-
-	public function post($id) {
-		$post = Post::find($id);
-		return view('news_post', array('post' => $post));
 	}
 }
