@@ -10,9 +10,9 @@ class PostController extends Controller
 	{
 		$post = new Post();
 		$post->title = $request['title'];
-		$post->description = $request['description'];
+		$post->info = $request['info'];
 		$post->posting_project = $request->project()->id;
-		//$request->projects()->-posts->save($post);
+		save($post);
 		return view('home');
 	}
 

@@ -8,6 +8,11 @@ class Comment extends Model
 {
     public function post()
     {
-        return $this->belongs_to('SoftwareHerd\Comment');
+        return $this->belongsTo('SoftwareHerd\Comment');
+    }
+    
+    public function user()
+    {
+        return $this->belongsTo('SoftwareHerd\User');
     }
 }
