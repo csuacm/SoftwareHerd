@@ -26,6 +26,8 @@
 
 <h4><a href="/members/{{ $project->id }}">Members</a></h4>
 
+@include('news_list')
+
 <div>
 </div>
 

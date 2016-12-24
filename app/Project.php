@@ -12,4 +12,9 @@ class Project extends Model
     {
     	return $this->belongsTo('SoftwareHerd\User');
     }
+	
+	public function posts()
+    {
+        return $this->hasMany('SoftwareHerd\Post', 'posting_project')->orderBy('created_at', 'desc');
+    }
 }
