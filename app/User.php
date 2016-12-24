@@ -13,7 +13,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('SoftwareHerd\Project');
     }
-
+    
+    public function comments()
+    {
+        return $this->hasMany('SoftwareHerd\Comment');
+    }
 
     /**
      * The attributes that are mass assignable.
