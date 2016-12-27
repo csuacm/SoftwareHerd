@@ -8,8 +8,8 @@ class PostController extends Controller
 {
 	public function createPost(request $request)
 	{
-		$post = new Comment();
-		$post->title = $request['info'];
+		$post = new Post();
+		$post->title = $request['title'];
 		$post->summary = $request['summary'];
 		$post->info = $request['info'];
 		$post->posting_project = $request->id;

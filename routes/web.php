@@ -25,6 +25,7 @@ Route::get('members/{id}', 'User_ProjectsController@project_members')->middlewar
 
 Route::get('/news_post/{id}', 'PostController@post'); //For the specific post page.
 Route::post('/news_post/{id}', 'CommentController@createComment'); //For the specific post page.
+Route::post('/write_post/{id}', 'PostController@createPost');
 
 Auth::routes();
 

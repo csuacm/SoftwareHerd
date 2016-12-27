@@ -3,7 +3,7 @@
 @section('content')
 
 <h4>{{$post->title}}</h4><br>
-{{$post->created_at}}<br>
+{{$post->created_at}}<br><br>
 <?php echo $post->info; ?><br>
 
 
