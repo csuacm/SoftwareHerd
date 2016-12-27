@@ -18,11 +18,14 @@ Route::get('/', function () { //Welcome route
 
 Route::get('project/{id}', 'ProjectController@project'); //Route for individual project
 Route::get('project_library', 'ProjectController@projects'); //Route for project library
+Route::get('project_admin/{id}', 'ProjectController@admin'); //Route for project admin page
 
-Route::get('user/{id}', 'UserController@user'); //Route for individual project
-Route::get('members/{id}', 'User_ProjectsController@project_members'); //Route for project members
+Route::get('user/{id}', 'UserController@user')->middleware('auth'); //Route for individual project
+Route::get('members/{id}', 'User_ProjectsController@project_members')->middleware('auth'); //Route for project members
 
 Route::get('/news_post/{id}', 'PostController@post'); //For the specific post page.
+Route::post('/news_post/{id}', 'CommentController@createComment'); //For the specific post page.
+Route::post('/write_post/{id}', 'PostController@createPost');
 
 Auth::routes();
 

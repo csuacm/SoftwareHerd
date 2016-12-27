@@ -6,14 +6,15 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-	public function projectCreatePost(request $request)
+	public function createPost(request $request)
 	{
 		$post = new Post();
 		$post->title = $request['title'];
+		$post->summary = $request['summary'];
 		$post->info = $request['info'];
-		$post->posting_project = $request->project()->id;
-		save($post);
-		return view('home');
+		$post->posting_project = $request->id;
+		$post->save();
+		return redirect('/project/'.$request->id);
 	}
 
 	public function post($id) {

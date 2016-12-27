@@ -14,6 +14,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'SoftwareHerd\Model' => 'SoftwareHerd\Policies\ModelPolicy',
+        'SoftwareHerd\Project' => 'SoftwareHerd\Policies\ProjectPolicy',
+        'SoftwareHerd\Comment' => 'SoftwareHerd\Policies\CommentPolicy',
     ];
 
     /**

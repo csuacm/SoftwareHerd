@@ -1,18 +1,18 @@
 <?php 
 namespace SoftwareHerd\Http\Controllers;
 
-use SoftwareHerd\Post;
+use SoftwareHerd\Comment;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-	public function projectCreateComment(request $request)
+	public function createComment(request $request)
 	{
 		$comment = new Comment();
-		$comment->title = $request['title'];
-		$comment->description = $request['description'];
-		$comment->posting_project = $request->project()->id;
-		//$request->projects()->-posts->save($post);
-		return view('home');
+		$comment->data = $request['data'];
+		$comment->post_id = $request->id;
+		$comment->user_id = $request->user()->id;
+		$comment->save();
+		return redirect('/news_post/'.$request->id);
 	}
 }

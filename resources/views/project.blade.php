@@ -28,6 +28,12 @@
 
 @include('news_list')
 
+<h3>
+    @can('admin', $project)
+    <a href="/project_admin/{{$project->id}}">Project Administration</a>
+    @endcan
+</h3>
+
 <div>
 </div>
 

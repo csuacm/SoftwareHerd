@@ -31,4 +31,10 @@ class ProjectController extends Controller
 		return view('project_library', array('projects' => $projects));
 	}
 
+	public function admin($id) {
+		$project = Project::find($id);
+		if(!\Auth::user()->can('admin', $project))
+			return redirect('/project_library');
+		return view('project_admin', array('project' => $project));
+	}
 }
