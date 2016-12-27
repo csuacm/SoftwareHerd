@@ -10,7 +10,7 @@ class Project extends Model
 
     public function user()
     {
-    	return $this->belongsTo('SoftwareHerd\User');
+    	return $this->hasMany('SoftwareHerd\User');
     }
 	
 	public function posts()
