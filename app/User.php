@@ -11,7 +11,7 @@ class User extends Authenticatable
 
     public function projects()
     {
-        return $this->hasMany('SoftwareHerd\Project');
+        return $this->hasMany('SoftwareHerd\Project', 'project_admin_user_id');
     }
     
     public function comments()
