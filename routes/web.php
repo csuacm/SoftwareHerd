@@ -20,9 +20,12 @@ Route::get('project/{id}', 'ProjectController@project'); //Route for individual 
 Route::get('project_library', 'ProjectController@projects'); //Route for project library
 
 Route::get('project_admin/{id}', 'ProjectController@admin'); //Route for project admin page
-Route::get('/promote/{user_id}/{project_id}', 'ProjectController@promote');
-Route::get('/demote/{user_id}/{project_id}', 'ProjectController@demote');
-Route::get('/remove/{user_id}/{project_id}', 'ProjectController@removeMember');
+Route::post('/promote', 'ProjectController@promote');
+Route::post('/demote', 'ProjectController@demote');
+Route::post('/remove', 'ProjectController@removeMember');
+Route::post('/acceptMember', 'ProjectController@acceptMember');
+Route::post('/declineMember', 'ProjectController@declineMember');
+
 
 Route::get('user/{id}', 'UserController@user')->middleware('auth'); //Route for individual project
 Route::get('members/{id}', 'User_ProjectsController@project_members')->middleware('auth'); //Route for project members

@@ -16,7 +16,7 @@ Project Admin Page
 
 
 <div id="admin_manage_members" style="display: none;">
-    <div class="panel panel-default" style="padding: 10px; width:350px; height:430px; ">
+    <div class="panel panel-default" style="padding: 10px; width:350px; height:430px; float:left; margin-right:50px;">
         <h4>Members List</h4>
         <div style="overflow-y: scroll; width:330px; height:370px">
             <table class="table table-hover table-striped">
@@ -25,20 +25,64 @@ Project Admin Page
             ?>
             @foreach($users as $user)
                 <tr>
-                    <td style="width:50%">Joe{{$user->user_name}}</td>
-                    <td style="width:20%">Member{{$user->level}}</td>
-                    <td style="width:30%">
-                        <a href="/promote/{{$user->user_id}}/{{$user->project_id}}" style="width:30%">
-                            P
-                        </a>
-                        <a href="/demote/{{$user->user_id}}/{{$user->project_id}}" style="width:30%">
-                            D
-                        </a>
-                        @if($user->user_id != Auth::user()->id) // So we can never delete all from a project by mistake
-                            <a href="/remove/{{$user->user_id}}/{{$user->project_id}}" style="width:30%">
-                                X
-                            </a>
+                    <td style="width:50%">{{$user->user_name}}</td>
+                    <td style="width:25%">
+                        @if($user->level == 0)
+                            Member
+                        @elseif($user->level == 1)
+                            Admin
+                        @elseif($user->level == 2)
+                            Leader
+                        @elseif($user->level == 3)
+                            Creator
+                        @else
+                            {{$user->level}}
                         @endif
+                    </td>
+                    <td style="width:25%">
+                        <button onClick="$('#admin_{{$user->user_id}}_form').attr('action', '/promote');
+                                         $('#admin_{{$user->user_id}}_form').submit();">P</button>
+                        <button onClick="$('#admin_{{$user->user_id}}_form').attr('action', '/demote');
+                                         $('#admin_{{$user->user_id}}_form').submit();">D</button>
+                        @if($user->user_id != Auth::user()->id)
+                            <button onClick="$('#admin_{{$user->user_id}}_form').attr('action', '/remove');
+                                             $('#admin_{{$user->user_id}}_form').submit();">X</button>
+                        @endif
+                        <form id="admin_{{$user->user_id}}_form" style="width:20px; height:20px" action="/promote" method="post">
+                            <input type="hidden" value="{{ $user->user_id }}" name="user"></input>
+                            <input type="hidden" value="{{ $user->project_id }}" name="project"></input>
+                            <input type="hidden" value="{{ Session::token() }}" name="_token">
+                            {{ csrf_field() }}
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+            </table>
+        </div>
+    </div>
+        
+    <div class="panel panel-default" style="padding: 10px; width:350px; height:430px; float:left;">
+        <h4>Request List</h4>
+        <div style="overflow-y: scroll; width:330px; height:370px">
+            <table class="table table-hover table-striped">
+            <?php
+                $users = \DB::select('select * from user_project_requests where project_id = :id', ['id' => $project->id]);
+            ?>
+            @foreach($users as $user)
+                <tr>
+                    <td style="width:50%">{{$user->user_name}}</td>
+                    <td style="width:40%">{{$user->reason}}</td>
+                    <td style="width:10%">
+                        <button onClick="$('#admin_{{$user->user_id}}_form').attr('action', '/acceptMember');
+                                         $('#admin_{{$user->user_id}}_form').submit();">Y</button>
+                        <button onClick="$('#admin_{{$user->user_id}}_form').attr('action', '/declineMember');
+                                         $('#admin_{{$user->user_id}}_form').submit();">N</button>
+                        <form id="admin_{{$user->user_id}}_form" style="width:20px; height:20px" action="/acceptMember" method="post">
+                            <input type="hidden" value="{{ $user->user_id }}" name="user"></input>
+                            <input type="hidden" value="{{ $user->project_id }}" name="project"></input>
+                            <input type="hidden" value="{{ Session::token() }}" name="_token">
+                            {{ csrf_field() }}
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -62,7 +106,7 @@ Project Admin Page
        <div class="form-group">
            <textarea class="form-control" name="title" id="new-post" rows="1" placeholder="Your Post's Title"></textarea>
            <textarea class="form-control" name="summary" id="new-post" rows="2" placeholder="Your Post's Summary or Short Description"></textarea>
-           <textarea name="info" id="new-post-info" rows="20"></textarea>
+           <textarea style="height:450px" name="info" id="new-post-info" rows="20"></textarea>
        </div>
        <button type="submit" class="btn btn-primary">Create Post</button>
        <input type="hidden" value="{{ Session::token() }}" name="_token">
