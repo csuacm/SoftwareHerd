@@ -10,6 +10,15 @@ class ProjectPolicy
 {
     use HandlesAuthorization;
 
+    public function member(User $user, Project $project)
+    {
+        $user_projects = \DB::table('user_projects')->where('project_id', $project->id)->where('user_id', $user->id)->first();
+        if(!$user_projects)
+            return false;
+        else
+            return true;
+    }
+    
     public function admin(User $user, Project $project)
     {
         $user_projects = \DB::table('user_projects')->where('project_id', $project->id)->where('user_id', $user->id)->first();

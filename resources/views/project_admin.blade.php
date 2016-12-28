@@ -6,18 +6,19 @@ Project Admin Page
 
 @section('content')
 <div style="margin-bottom:20px">
-    <button onClick="$('#admin_new_post').hide();$('#admin_manage_members').hide();$('#admin_manage_info').show();">Manage Project</button>
-    <button onClick="$('#admin_new_post').hide();$('#admin_manage_info').hide();$('#admin_manage_members').show();">Manage Members</button>
-    <button onClick="$('#admin_manage_info').hide();$('#admin_manage_members').hide();$('#admin_new_post').show();">New News Post</button>
+    <button onClick="$('#admin_new_post').hide();$('#admin_manage_members').hide();$('#admin_manage_info').slideDown();">Manage Project</button>
+    <button onClick="$('#admin_new_post').hide();$('#admin_manage_info').hide();$('#admin_manage_members').slideDown();">Manage Members</button>
+    <button onClick="$('#admin_manage_info').hide();$('#admin_manage_members').hide();$('#admin_new_post').slideDown();">New News Post</button>
 </div>
-<div id="admin_manage_info" style="display: none;">
     
+<div id="admin_manage_info" style="display: none;">
+    <div class="well">More to come!</div>
 </div>
 
 
 <div id="admin_manage_members" style="display: none;">
     <div class="panel panel-default" style="padding: 10px; width:350px; height:430px; float:left; margin-right:50px;">
-        <h4>Members List</h4>
+        <div class="panel-heading"><h4 class="panel-title">Members List</h4></div>
         <div style="overflow-y: scroll; width:330px; height:370px">
             <table class="table table-hover table-striped">
             <?php
@@ -48,7 +49,7 @@ Project Admin Page
                             <button onClick="$('#admin_{{$user->user_id}}_form').attr('action', '/remove');
                                              $('#admin_{{$user->user_id}}_form').submit();">X</button>
                         @endif
-                        <form id="admin_{{$user->user_id}}_form" style="width:20px; height:20px" action="/promote" method="post">
+                        <form id="admin_{{$user->user_id}}_form" style="width:0px; height:0px" action="/promote" method="post">
                             <input type="hidden" value="{{ $user->user_id }}" name="user"></input>
                             <input type="hidden" value="{{ $user->project_id }}" name="project"></input>
                             <input type="hidden" value="{{ Session::token() }}" name="_token">
@@ -62,7 +63,7 @@ Project Admin Page
     </div>
         
     <div class="panel panel-default" style="padding: 10px; width:350px; height:430px; float:left;">
-        <h4>Request List</h4>
+        <div class="panel-heading"><h4 class="panel-title">Request List</h4></div>
         <div style="overflow-y: scroll; width:330px; height:370px">
             <table class="table table-hover table-striped">
             <?php
@@ -77,7 +78,7 @@ Project Admin Page
                                          $('#admin_{{$user->user_id}}_form').submit();">Y</button>
                         <button onClick="$('#admin_{{$user->user_id}}_form').attr('action', '/declineMember');
                                          $('#admin_{{$user->user_id}}_form').submit();">N</button>
-                        <form id="admin_{{$user->user_id}}_form" style="width:20px; height:20px" action="/acceptMember" method="post">
+                        <form id="admin_{{$user->user_id}}_form" style="width:0px; height:0px" action="/acceptMember" method="post">
                             <input type="hidden" value="{{ $user->user_id }}" name="user"></input>
                             <input type="hidden" value="{{ $user->project_id }}" name="project"></input>
                             <input type="hidden" value="{{ Session::token() }}" name="_token">
@@ -102,7 +103,7 @@ Project Admin Page
       }); 
     </script>
     
-    <form action="/write_post/{{ $project->id }}" method="post">
+    <form action="/write_post" method="post">
        <div class="form-group">
            <textarea class="form-control" name="title" id="new-post" rows="1" placeholder="Your Post's Title"></textarea>
            <textarea class="form-control" name="summary" id="new-post" rows="2" placeholder="Your Post's Summary or Short Description"></textarea>

@@ -25,6 +25,7 @@ Route::post('/demote', 'ProjectController@demote');
 Route::post('/remove', 'ProjectController@removeMember');
 Route::post('/acceptMember', 'ProjectController@acceptMember');
 Route::post('/declineMember', 'ProjectController@declineMember');
+Route::post('/pushRequest', 'ProjectController@pushRequest');
 
 
 Route::get('user/{id}', 'UserController@user')->middleware('auth'); //Route for individual project
@@ -32,7 +33,7 @@ Route::get('members/{id}', 'User_ProjectsController@project_members')->middlewar
 
 Route::get('/news_post/{id}', 'PostController@post'); //For the specific post page.
 Route::post('/news_post/{id}', 'CommentController@createComment'); //For the specific post page.
-Route::post('/write_post/{id}', 'PostController@createPost');
+Route::post('/write_post', 'PostController@createPost');
 
 Auth::routes();
 

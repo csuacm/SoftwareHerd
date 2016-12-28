@@ -28,6 +28,16 @@
 
 @include('news_list')
 
+@if(Auth::user())
+	@if(Auth::user()->can('member', $project))
+		<h4>You are a member of this project</h4>
+	@else
+		@include('project_request')
+	@endif
+@else
+    Please <a href="{{ url('/login') }}">login</a> if you want to join a project.
+@endif
+
 <h3>
     @can('admin', $project)
     <a href="/project_admin/{{$project->id}}">Project Administration</a>

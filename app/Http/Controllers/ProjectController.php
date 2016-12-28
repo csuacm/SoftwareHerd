@@ -31,7 +31,7 @@ class ProjectController extends Controller
 		return redirect('/project/'.$project->id);
 	}
 	
-	public function createRequest(request $request)
+	public function pushRequest(request $request)
 	{
 		$connection = new User_Project_Requests();
 		$connection->user_id = $request->user()->id;
@@ -40,7 +40,7 @@ class ProjectController extends Controller
 		$connection->project_name = $request['project_name'];
 		$connection->reason = $request['reason'];
 		$connection->save();
-		return redirect('/project/'.$project->id);
+		return redirect('/project/'.$request['project_id']);
 	}
 
 	public function project($id) {
