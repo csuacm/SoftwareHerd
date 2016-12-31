@@ -1,0 +1,56 @@
+/* 
+Light Orange #ffe7c9 
+	  Orange #ff9000
+	  Red 	 #c93d3d
+Light Red	 #c97474
+*/
+
+#container-spacing {
+	margin-top: 10%;
+	padding-top:10px;
+	padding-bottom:10px;
+	background-color: #c97474;
+	text-align: center;
+}
+
+#post {
+	padding-top:-5px;
+	padding-bottom: 2%;
+	background-color: white;
+}
+#post-title {
+	font-size: 45px;
+
+}
+#post-time {
+	font-size: 12px;
+}
+
+
+#comments-label {
+	padding-top: 5%;
+	padding-bottom: 5px;
+	color: white;
+	font-size: 24px;
+	text-decoration: underline;
+}
+
+.comment {
+	padding-bottom: 2%;
+}
+#comment-data {
+	font-size: 15px;
+	color: white;
+}
+#comment-name {
+	font-size: 13px;
+	color: #ffe7c9;
+}
+#comment-time {
+	font-size: 10px;
+}
+
+#comment-button {
+	background-color: #ff9000;
+	border-color: white;
+}
