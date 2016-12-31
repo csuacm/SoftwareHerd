@@ -80,6 +80,7 @@
 	        		<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;"> {{ csrf_field() }}
 	       		 	</form>
 					<li><a href="/user/{{Auth::user()->id}}">My Profile</a></li>
+					<a href="/user/{{Auth::user()->id}}"><img class="avatar" src="/uploads/avatars/{{ Auth::user()->avatar }} " style="width:30px; height:auto;  border-radius:50%; margin-top:4%;"></a>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
