@@ -1,12 +1,13 @@
 @extends('layouts.master')
+<link rel="stylesheet" href="{{ URL::asset('css/login.css') }}">
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
+            <div class="panel panel-default" id="outside-panel">
+                <div class="panel-heading" id="login-title-panel">Login</div>
+                <div class="panel-body" id="login-body-panel">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
@@ -50,11 +51,11 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" id="login-button">
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">
+                                <a class="btn btn-link" id="forgot-password" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
                                 </a>
                             </div>

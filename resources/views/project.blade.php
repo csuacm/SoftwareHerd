@@ -1,52 +1,137 @@
 @extends('layouts.master')
-
+<link rel="stylesheet" href="{{ URL::asset('/css/project.css') }}">
 @section('content')
-<h1>{{ $project->title }}</h1>
-<h3>{{ $project->description }}</h3>
 
-@if($project->github_link) 
-	<h3><a href="{{$project->github_link}}">GitHub Link</a></h3>
-@endif
 
-@if($project->slack_link) 
-	<h3><a href="{{$project->slack_link}}">Slack Link</a></h3>
-@endif
+@can('admin', $project)
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default" id="outside-panel">
+				<div class="panel-body" id="project-body-panel">
+					<a href="/project_admin/{{$project->id}}" class="btn btn-primary btn-s" id="see-project-button">
+						Project Administration
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+@endcan
 
-@if($project->website_link) 
-	<h3>{{ $project->website_link }}</h3>
-@endif
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default" id="outside-panel">
+				<div class="panel-heading" id="project-title-panel">
+					<span id="project-title-text">{{ $project->title }}</span><br>
+				</div>
+				<div class="panel-body" id="project-body-panel">
+					<p>{{ $project->description }}</p>
+					<br>
 
-@if($project->get_involved_pitch) 
-	<h3>{{ $project->get_involved_pitch }}</h3>
-@endif
+					@if($project->project_admin_user_id) 
+						<a href="/user/{{$project->project_admin_user_id}}" class="btn btn-primary btn-xs" id="see-project-button">
+							Project Admin
+						</a>
+					@endif
+					<a href="/members/{{ $project->id }}" class="btn btn-primary btn-xs" id="see-project-button">
+						Members
+					</a>
+					<a href="#news_list" class="btn btn-primary btn-xs" id="see-project-button">
+						See Project's Posts
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
 
-@if($project->project_admin_user_id) 
-	<h3><a href="/user/{{$project->project_admin_user_id}}">Project Admin</a></h3>
-@endif
 
-<h4><a href="/members/{{ $project->id }}">Members</a></h4>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default" id="info-outside-panel-small">
+				<div class="panel-heading" id="info-project-title-panel">
+					<span id="info-project-title-text">Info</span><br>
+				</div>
+				<div class="panel-body" id="info-project-body-panel">
+					@if($project->get_involved_pitch) 
+						<p>
+							{{ $project->get_involved_pitch }}
+						</p>
+					@endif
 
-@include('news_list')
+					@if($project->github_link) 
+						<a href="{{$project->github_link}}" class="btn btn-primary btn-xs" id="info-see-project-button">
+							GitHub Link
+						</a>
+					@endif
 
-@if(Auth::user())
-	@if(Auth::user()->can('member', $project))
-		<h4>You are a member of this project</h4>
-	@else
-		@include('project_request')
-	@endif
-@else
-    Please <a href="{{ url('/login') }}">login</a> if you want to join a project.
-@endif
+					@if($project->slack_link) 
+						<a href="{{$project->slack_link}}" class="btn btn-primary btn-xs" id="info-see-project-button">
+							Slack Link
+						</a>
+					@endif
+		                    
+					@if($project->website_link) 
+						<a href="{{$project->website_link}}" class="btn btn-primary btn-xs" id="info-see-project-button">
+							Website Link
+						</a>
+					@endif
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
 
-<h3>
-    @can('admin', $project)
-    <a href="/project_admin/{{$project->id}}">Project Administration</a>
-    @endcan
-</h3>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default" id="outside-panel-small">
+				<div class="panel-heading" id="project-title-panel">
+					<span id="project-title-text">Membership Status</span><br>
+				</div>
+				<div class="panel-body" id="project-body-panel">
+					@if(Auth::user())
+						@if(Auth::user()->can('member', $project))
+							<h4>You are a member of this project</h4>
+						@else
+							@include('project_request')
+						@endif
+					@else
+						<p>
+							Please <a href="{{ url('/login') }}">login</a> if you want to join a project.
+						</p>
+					@endif
+					<br>
 
-<div>
+					@if($project->project_admin_user_id) 
+						<a href="/user/{{$project->project_admin_user_id}}" class="btn btn-primary btn-xs" id="see-project-button">
+							Project Admin
+						</a>
+					@endif
+
+					<a href="/members/{{ $project->id }}" class="btn btn-primary btn-xs" id="see-project-button">
+						Members
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+
+<div id="news_list">
+	@include('news_list')
 </div>
 
 
 
+
+
+
+
+
 @endsection
+
+

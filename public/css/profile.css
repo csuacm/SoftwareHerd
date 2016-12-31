@@ -1,0 +1,70 @@
+/* 
+
+Light Orange #ffe7c9 
+	  Orange #ff9000
+	  Red 	 #c93d3d
+	  
+*/
+
+.user-name {
+	font-size: 28px;
+}
+
+.image-section {
+	text-align: center;
+	margin-top: 10%;
+}
+
+.info-section {
+	text-align: center;
+}
+
+.skills-section {
+	text-align: center;
+}
+
+#underline {
+	text-decoration: underline;
+}
+
+.edit-section {
+	background-color: #E9E7DA;
+}
+.edit-image-section {
+	text-align: center;
+	margin-top: 5%;
+}
+#input-profile-image {
+	margin-left: 40%;
+}
+.edit-user-section {
+	text-align: center;
+	margin-top: 5%;
+}
+
+li {
+	list-style: none;
+}
+
+
+@media (max-width: 900px) { 
+	#input-profile-image {
+		margin-left: 37%;
+	}	
+}
+
+
+@media (max-width: 600px) { 
+	#input-profile-image {
+		margin-left: 18%;
+	}
+}
+
+
+
+
+
+
+
+
+

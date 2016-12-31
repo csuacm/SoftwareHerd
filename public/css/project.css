@@ -1,0 +1,60 @@
+/* 
+
+Light Orange #ffe7c9 
+	  Orange #ff9000
+	  Red 	 #c93d3d
+	  
+*/
+
+
+#outside-panel-small {
+	margin-top: 5%;
+}
+#outside-panel {
+	margin-top: 15%;
+}
+#project-title-panel {
+	background-color: #c93d3d;
+}
+#project-title-text {
+	color:white;
+	font-size: 20px;
+}
+#project-body-panel {
+	background-color: #ffe7c9;
+}
+
+#see-project-button {
+	background-color: #ff9000;
+	border-color: white;
+}
+
+
+
+
+#info-outside-panel {
+	margin-top: 15%;
+}
+#info-project-title-panel {
+	background-color: #ff9000;
+}
+#info-project-title-text {
+	color:white;
+	font-size: 20px;
+}
+#info-project-body-panel {
+	background-color: #ffe7c9;
+}
+
+#info-see-project-button {
+	background-color: #c93d3d;
+	border-color: white;
+}
+
+#red-btn-post-comment {
+	background-color: #c93d3d;
+	border-color: white;
+}
+
+
+

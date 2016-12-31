@@ -1,0 +1,27 @@
+/* 
+
+Light Orange #ffe7c9 
+	  Orange #ff9000
+	  Red 	 #c93d3d
+	  
+*/
+
+#outside-panel {
+	margin-top: 15%;
+}
+#login-title-panel {
+	color:white;
+	background-color: #c93d3d;
+}
+#login-body-panel {
+	background-color: #ffe7c9;
+}
+
+#login-button {
+	background-color: #ff9000;
+	border-color: white;
+}
+
+#forgot-password {
+	color: #c93d3d;
+}

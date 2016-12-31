@@ -4,7 +4,7 @@
     <div class="form-group">
         <textarea class="form-control" name="reason" rows="5" placeholder="Why I want to join."></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Post Comment</button>
+    <button type="submit" class="btn btn-primary" id="red-btn-post-comment">Post Comment</button>
     <input type="hidden" value="{{ Session::token() }}" name="_token">
     <input type="hidden" value="{{$project->id}}" name="project_id">
     <input type="hidden" value="{{$project->name}}" name="project_name">

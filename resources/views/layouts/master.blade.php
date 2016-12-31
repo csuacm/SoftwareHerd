@@ -4,14 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Software Herd') }}</title>
 
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+
 
     <!-- Scripts -->
     <script>
@@ -21,52 +27,68 @@
     </script>
 </head>
 
-
-
-
 <!-- NAV BAR -->
-<nav class="sidebar-left">
-	<div class="logo">
-		<!-- HIDE IMAGE 
-		<a href="https://www.cs.colostate.edu/cstop/"><img src="ramLogo.png" alt="Colorado State University Logo" style="width:100px;height:auto;"></a>
-		-->
-	</div>
-	<div class="title">
-		<h1 class="minMargin-B" href="{{ url('/') }}">{{ config('app.name', 'Software Herd') }}</h1>
-		<h4>Network and Create Projects</h4>
-	</div>
-	<div class="links nav-m">
-		
-		<a href="\">Home</a>
-		<a href="#">About</a>
-		<a href="#">Contact</a>
-		<a href="\project_library">Browse Projects</a>
-		@if (Auth::guest())
-			<a href="{{ url('/login') }}">Login</a>
-			<a href="{{ url('/register') }}">Register</a>
-		@else
-			<a href="\new_project">New Project</a>
-			<a href="{{ url('/logout') }}"
-	           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-	           Logout
-	        </a>
-	        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-	            {{ csrf_field() }}
-	        </form>
-        @endif
-                                        
 
-
-	</div>
-	<div class="logo"><br>
-		<!-- HIDE IMAGE 
-		<a href="https://www.acm.org/"><img src="acm.png" alt="Association for Computing Machinery Logo" style="width:100px;height:auto;"></a>
-		-->
-	</div>
-</nav>
+@if (Auth::guest())
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="/"><img class="nav-logo" src="/uploads/Images/SHIconRedAndOrange.png" style="width:100px; height:auto;"></a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/contact">Contact</a></li>
+					<li><a href="/project_library">Browse Projects</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="{{ url('/login') }}">Login</a></li>
+					<li><a href="{{ url('/register') }}">Register</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</nav>
+@else
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="/"><img class="nav-logo" src="/uploads/Images/SHIconRedAndOrange.png" style="width:100px; height:auto;"></a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/home">Home</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/contact">Contact</a></li>
+					<li><a href="/project_library">Browse Projects</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="\new_project">New Project</a></li>
+					<li><a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+	        		<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;"> {{ csrf_field() }}
+	       		 	</form>
+					<li><a href="/user/{{Auth::user()->id}}">My Profile</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</nav>
+@endif
 <!-- NAV BAR END  -->
 
-<div id="events">
+
+<div class="container">
 @yield('content')
 </div>
 

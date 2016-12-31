@@ -1,12 +1,13 @@
 @extends('layouts.master')
+<link rel="stylesheet" href="{{ URL::asset('css/register.css') }}">
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
+            <div class="panel panel-default" id="outside-panel">
+                <div class="panel-heading" id="register-title-panel">Register</div>
+                <div class="panel-body" id="register-body-panel">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
@@ -52,6 +53,34 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('website_link') ? ' has-error' : '' }}">
+                            <label for="website_link" class="col-md-4 control-label">Website Link</label>
+
+                            <div class="col-md-6">
+                                <input id="website_link" type="text" class="form-control" name="website_link" value="{{ old('website_link') }}"  autofocus>
+
+                                @if ($errors->has('website_link'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('website_link') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('bio') ? ' has-error' : '' }}">
+                            <label for="bio" class="col-md-4 control-label">Bio</label>
+
+                            <div class="col-md-6">
+                                <input id="bio" type="textarea" class="form-control" name="bio" value="{{ old('bio') }}"  autofocus>
+
+                                @if ($errors->has('bio'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('bio') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
@@ -77,7 +106,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" id="register-button">
                                     Register
                                 </button>
                             </div>

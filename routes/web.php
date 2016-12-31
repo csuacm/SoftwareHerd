@@ -11,8 +11,15 @@
 |
 */
 
-Route::get('/', function () { //Welcome route
+//Static Routes - Unprotected/Authorized 
+Route::get('/', function () { 
     return view('welcome');
+});
+Route::get('/about', function () { 
+    return view('about');
+});
+Route::get('/contact', function () { 
+    return view('contact');
 });
 
 
@@ -28,7 +35,9 @@ Route::post('/declineMember', 'ProjectController@declineMember');
 Route::post('/pushRequest', 'ProjectController@pushRequest');
 
 
-Route::get('user/{id}', 'UserController@user')->middleware('auth'); //Route for individual project
+Route::get('user/{id}', 'UserController@user')->middleware('auth');
+Route::post('user', 'UserController@update_avatar');
+
 Route::get('members/{id}', 'User_ProjectsController@project_members')->middleware('auth'); //Route for project members
 
 Route::get('/news_post/{id}', 'PostController@post'); //For the specific post page.
