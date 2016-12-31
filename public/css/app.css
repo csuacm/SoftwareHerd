@@ -67,11 +67,36 @@ Light Red  #c97474
   border-radius:50%; 
   margin-top:1%;
 }
+@media (max-width: 1200px) { 
+  #nav-right-1200fix {
+    padding-left: 0;
+  }
+}
 
-
+@media (max-width: 995px) { 
+  #nav-right-1200fix {
+    padding-left: 0;
+    font-size:15px;
+    padding-right:0px;
+  }
+  #nav-1200-fix {
+    font-size:15px;
+    padding-right:0px;
+  }
+  #avatar-nav {
+    padding-left: 3px;
+  }
+}
 @media (max-width: 900px) { 
   #avatar-nav {
-    width:45px; height:auto;  border-radius:50%; margin-top:0%; margin-left:5%;
+    display: none;
+  }
+}
+
+
+@media (max-width: 767px) { 
+  #nav-right-1200fix {
+    padding-left: 15px;
   }
 }
 

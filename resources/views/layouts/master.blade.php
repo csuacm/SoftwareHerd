@@ -69,18 +69,18 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="/home">Home</a></li>
-					<li><a href="/about">About</a></li>
-					<li><a href="/contact">Contact</a></li>
-					<li><a href="/project_library">Browse Projects</a></li>
+					<li><a href="/home" id="nav-1200-fix">Home</a></li>
+					<li><a href="/about" id="nav-1200-fix">About</a></li>
+					<li><a href="/contact" id="nav-1200-fix">Contact</a></li>
+					<li><a href="/project_library" id="nav-1200-fix">Browse Projects</a></li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="\new_project">New Project</a></li>
-					<li><a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+				<ul class="nav navbar-nav navbar-right" id="">
+					<li><a href="\new_project" id="nav-right-1200fix" id="nav-1200-fix">New Project</a></li>
+					<li><a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" id="nav-1200-fix">Logout</a></li>
 	        		<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;"> {{ csrf_field() }}
 	       		 	</form>
-					<li><a href="/user/{{Auth::user()->id}}">My Profile</a></li>
-					<a href="/user/{{Auth::user()->id}}"><img class="av-nav" src="/uploads/avatars/{{ Auth::user()->avatar }} " id="avatar-nav" ></a>
+					<li><a href="/user/{{Auth::user()->id}}" id="nav-1200-fix">My Profile</a></li>
+					<a href="/user/{{Auth::user()->id}}" id="nav-1200-fix"><img class="av-nav" src="/uploads/avatars/{{ Auth::user()->avatar }} " id="avatar-nav" ></a>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
