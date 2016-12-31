@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+<div class="container" style="padding-top:10%">
 @section('title')
 Project Admin Page
 @endsection
@@ -115,3 +115,4 @@ Project Admin Page
     </form>
 </div>
 @endsection
+</div>
