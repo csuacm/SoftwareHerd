@@ -1,0 +1,59 @@
+/* 
+Light Orange #ffe7c9 
+	  Orange #ff9000
+	  Red 	 #c93d3d
+Light Red	 #c97474	
+*/
+
+#table { 
+	margin-top: 20px; 
+	height: 200px; 
+	overflow: auto; 
+	margin-bottom: 10%;
+}
+
+#post-outside-panel {
+	margin-top:3%;
+	margin-bottom: 12px;
+}
+#post-body-panel {
+	background-color: #c97474;
+}
+
+#post {
+	
+}
+#post-title {
+	margin-bottom: 5px;
+}
+#tb-post-title {
+	display: block;
+	font-size: 17px;
+	color: white;
+	background-color: #c93d3d;
+	border-color: ff9000;
+}
+#tb-post-time {
+
+}
+#tb-post-summary {
+	margin-left: 50px;
+	color: white;
+
+}
+#spacing-between-posts {
+	margin-top:45px;
+}
+
+@media (max-width: 1200px) { 
+  	#tb-post-summary { 
+  		margin-left: 0;
+  		text-align: center;
+  		display: block; 
+  	}
+  	#tb-post-time { 
+  		margin-left: 0;
+  		text-align: center;
+  		display: block; 
+  	}
+}

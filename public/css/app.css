@@ -22,7 +22,8 @@ Light Red  #c97474
 /* Navbar */
 .navbar {
 	background-color: #ffe7c9; 
-	border-color: #ffe7c9; /* Border line color */
+	border-color: white; /* Border line color */
+  border-bottom-width: 5px;
 }
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
 	border-color:white; /* Border line color when collapsed */

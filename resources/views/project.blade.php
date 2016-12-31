@@ -12,6 +12,7 @@
 					<a href="/project_admin/{{$project->id}}" class="btn btn-primary btn-s" id="see-project-button">
 						Project Administration
 					</a>
+					<p><i>You are an admin for this project.<br>You can click here to access the adminstrative controls.<br>Other users will not see this panel.</i></p>
 				</div>
 			</div>
 		</div>
