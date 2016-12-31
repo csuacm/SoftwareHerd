@@ -122,7 +122,7 @@
 	</div>
 </div>	
 
-<div id="news_list">
+<div id="news-list">
 	@include('news_list')
 </div>
 
