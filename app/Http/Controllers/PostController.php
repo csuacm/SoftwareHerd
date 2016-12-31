@@ -12,9 +12,9 @@ class PostController extends Controller
 		$post->title = $request['title'];
 		$post->summary = $request['summary'];
 		$post->info = $request['info'];
-		$post->posting_project = $request->id;
+		$post->posting_project = $request['project_id'];
 		$post->save();
-		return redirect('/project/'.$request->id);
+		return redirect('/project/'.$request['project_id']);
 	}
 
 	public function post($id) {
