@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ URL::asset('/css/projectlibrary.css') }}">
 @section('content')
 
-	@foreach ($projects as $project)
+	@foreach ($projects->sortByDesc('created_at') as $project)
 
 		<div class="container">
 		    <div class="row">
