@@ -15,7 +15,7 @@
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('/css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
 
 
@@ -80,7 +80,7 @@
 	        		<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;"> {{ csrf_field() }}
 	       		 	</form>
 					<li><a href="/user/{{Auth::user()->id}}">My Profile</a></li>
-					<a href="/user/{{Auth::user()->id}}"><img class="avatar" src="/uploads/avatars/{{ Auth::user()->avatar }} " style="width:30px; height:auto;  border-radius:50%; margin-top:4%;"></a>
+					<a href="/user/{{Auth::user()->id}}"><img class="av-nav" src="/uploads/avatars/{{ Auth::user()->avatar }} " id="avatar-nav" ></a>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>

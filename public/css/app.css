@@ -40,7 +40,7 @@ Light Orange #ffe7c9
     padding-top:22px;
 }
 .navbar-inverse .navbar-nav>li>a:hover{
-    color: black;
+    color: white;
 }
 
 /* Title "SoftwareHerd" */
@@ -58,3 +58,26 @@ Light Orange #ffe7c9
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
     background-color: #c93d3d;
 }
+
+#avatar-nav {
+  width:30px; 
+  height:auto;  
+  border-radius:50%; 
+  margin-top:4%;
+}
+
+
+@media (max-width: 900px) { 
+  #avatar-nav {
+    width:30px; height:auto;  border-radius:50%; margin-top:4%;
+  }
+}
+
+
+@media (max-width: 600px) { 
+  #avatar-nav {
+    width:30px; height:auto;  border-radius:50%; margin-top:4%;
+  }
+}
+
+

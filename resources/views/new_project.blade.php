@@ -18,7 +18,8 @@ New Project
                 <textarea class="form-control" name="slack_link" id="new-project" rows="2" placeholder="Slack Link Here"></textarea>
                 <textarea class="form-control" name="website_link" id="new-project" rows="2" placeholder="Website Link Here"></textarea>
                 <textarea class="form-control" name="get_involved_pitch" id="new-project" rows="5" placeholder="Explain how to get involved"></textarea>
-                            </div>
+                <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
+            </div>
              <button type="submit" class="btn btn-primary">Create Post</button>
              <input type="hidden" value="{{ Session::token() }}" name="_token">
               {{ csrf_field() }}

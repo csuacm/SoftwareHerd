@@ -19,6 +19,7 @@ class ProjectController extends Controller
 		$project->website_link = $request['website_link'];
 		$project->get_involved_pitch = $request['get_involved_pitch'];
 		$project->project_admin_user_id = $request->user()->id;
+		$project->user_id = $request->user()->id;
 		$project->save();
 		
 		$connection = new User_Projects();
