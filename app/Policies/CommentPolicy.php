@@ -10,27 +10,8 @@ class CommentPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Determine whether the user can update the comment.
-     *
-     * @param  \SoftwareHerd\User  $user
-     * @param  \SoftwareHerd\Comment  $comment
-     * @return mixed
-     */
-    public function update(User $user, Comment $comment)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can delete the comment.
-     *
-     * @param  \SoftwareHerd\User  $user
-     * @param  \SoftwareHerd\Comment  $comment
-     * @return mixed
-     */
     public function delete(User $user, Comment $comment)
     {
-        //
+        return $user->id === $comment->user_id;
     }
 }

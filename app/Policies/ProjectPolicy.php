@@ -9,7 +9,14 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 class ProjectPolicy
 {
     use HandlesAuthorization;
-
+    
+    public function before($user, $ability)
+    {
+        if ($user->isSuperAdmin()) {
+            return true;
+        }
+    }
+    
     public function member(User $user, Project $project)
     {
         $user_projects = \DB::table('user_projects')->where('project_id', $project->id)->where('user_id', $user->id)->first();

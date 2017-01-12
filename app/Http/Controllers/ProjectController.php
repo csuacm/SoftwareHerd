@@ -2,6 +2,7 @@
 namespace SoftwareHerd\Http\Controllers;
 
 use SoftwareHerd\Project;
+use SoftwareHerd\User;
 use SoftwareHerd\User_Projects;
 use SoftwareHerd\User_Project_Requests;
 use Illuminate\Http\Request;
@@ -58,26 +59,36 @@ class ProjectController extends Controller
 		$project = Project::find($id);
 		if(!\Auth::user()->can('admin', $project))
 			return redirect('/project_library');
-		return view('project_admin', array('project' => $project));
+		$users = User_Projects::get()->where('project_id', $id);
+		$user_requests = User_Project_Requests::get()->where('project_id', $id);
+		return view('project_admin/admin', array('project' => $project, 'users' => $users, 'user_requests' => $user_requests));
 	}
 	
 	public function promote(request $request) {
 		$level = \DB::table('user_projects')->where('user_id', $request['user'])->where('project_id', $request['project'])->value('level');
+		
+		if($level > 2)
+			return;
+		
 		$level = $level + 1;
 		\DB::table('user_projects')->where('user_id', $request['user'])
 				->where('project_id', $request['project'])
 				->update(['level' => $level]);
 				
-		return redirect('/project_admin/'.$request['project']);
+		return array('success'=>'true');
 	}
 	public function demote(request $request) {
 		$level = \DB::table('user_projects')->where('user_id', $request['user'])->where('project_id', $request['project'])->value('level');
+		
+		if($level < 1)
+			return;
+		
 		$level = $level - 1;
 		\DB::table('user_projects')->where('user_id', $request['user'])
 				->where('project_id', $request['project'])
 				->update(['level' => $level]);
 				
-		return redirect('/project_admin/'.$request['project']);
+		return array('success'=>'true');
 	}
 	
 	public function removeMember(request $request) {
@@ -85,7 +96,7 @@ class ProjectController extends Controller
 				->where('project_id', $request['project'])
 				->delete();
 		
-		return redirect('/project_admin/'.$request['project']);
+		return array('success'=>'true');
 	}
 
 	public function acceptMember(request $request) {
@@ -102,12 +113,18 @@ class ProjectController extends Controller
 		
 		\DB::table('user_project_requests')->where('user_id', $request['user'])
 				->where('project_id', $request['project'])->delete();
-		return redirect('/project_admin/'.$request['project']);
+		return array('success'=>'true');
 	}
 	
 	public function declineMember(request $request) {
 		\DB::table('user_project_requests')->where('user_id', $request['user'])
 				->where('project_id', $request['project'])->delete();
-		return redirect('/project_admin/'.$request['project']);
+		return array('success'=>'true');
+	}
+	
+	public function deleteProject(request $request) {
+		$project = Project::find($request['id']);
+		$project->delete();
+		return array('success'=>'true');
 	}
 }

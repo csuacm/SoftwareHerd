@@ -10,27 +10,33 @@
 </div>
 
 <div id="comments-label">Comments:</div>
-
-@foreach ($post->comments as $comment)
-  <div class="comment">
-    <span id="comment-data">{{$comment->data}}</span> - 
-    <a href="/members/{{$comment->user->id}}" id="comment-name">{{$comment->user->name}}</a>
-    <span id="comment-time">{{$comment->created_at}}</span>
-    
-  </div>
-@endforeach 
-
+<div id="comments">
+  @foreach ($post->comments as $comment)
+    <div class="comment">
+      <span id="comment-data">{{$comment->data}}</span> - 
+      <a href="/members/{{$comment->user->id}}" id="comment-name">{{$comment->user->name}}</a>
+      <span id="comment-time">{{$comment->created_at}}</span>
+      <br>
+      @can('delete', $comment)
+        <a onclick="deleteComment({{$comment->id}});">delete</a>
+      @elsecan('admin', $project)
+        <a onclick="deleteComment({{$comment->id}});">delete</a>
+      @endcan
+    </div>
+  @endforeach 
+</div>
+  
 @if(Auth::User())
-
-<form  method="post">
-    <div class="form-group">
-       <textarea class="form-control" name="data" id="new-project" rows="5" placeholder="Post a comment here."></textarea>
-   </div>
-   <button type="submit" class="btn btn-primary" id="comment-button">Post Comment</button>
-   <input type="hidden" value="{{ Session::token() }}" name="_token">
-     {{ csrf_field() }}
-</form>
-
+  <form id="new-comment-form" action="/createPost" method="post">
+      <div class="form-group">
+         <textarea class="form-control" name="data" id="new-comment-data" rows="5" placeholder="Post a comment here."></textarea>
+     </div>
+     <button type="submit" class="btn btn-primary" id="new-comment-btn">Post Comment</button>
+     <input type="hidden" value="{{ Session::token() }}" name="_token">
+     <input type="hidden" id="new-comment-post" value="{{$post->id}}" name="post_id">
+     <input type="hidden" id="new-comment-user" value="{{Auth::User()->id}}" name="user_id">
+       {{ csrf_field() }}
+  </form>
 @else
     Please <a href="{{ url('/login') }}">login</a> if you want to post a comment.
 @endif
