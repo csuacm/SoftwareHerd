@@ -1,0 +1,48 @@
+a{
+    cursor: pointer;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+#adminButtons a{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: right;
+    padding:5px;
+    color: #777;
+    display: block;
+    height: 30px;
+	cursor: pointer;
+}
+
+#adminButtons a:hover{
+    color: #000;
+    text-decoration: none;
+}
+
+.active{
+    border: 1px #EEE;
+    background-color: #F5F5F5;
+    padding: 0;
+    color: #000 !important;
+}
+
+#adminContent{
+    min-height: 400px;
+    padding: 5px;
+    border: solid 1px #EEE;
+    color: #000;
+}
+
+.table-fixed{
+    table-layout:fixed;
+}
+
+.table-fixed .no-overflow{
+    word-break:break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

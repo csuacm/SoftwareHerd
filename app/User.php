@@ -18,6 +18,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('SoftwareHerd\Comment');
     }
+    
+    public function isSuperAdmin()
+    {
+        return $this->admin;
+    }
 
     /**
      * The attributes that are mass assignable.

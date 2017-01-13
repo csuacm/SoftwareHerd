@@ -10,9 +10,15 @@ class CommentController extends Controller
 	{
 		$comment = new Comment();
 		$comment->data = $request['data'];
-		$comment->post_id = $request->id;
-		$comment->user_id = $request->user()->id;
+		$comment->post_id = $request['post_id'];
+		$comment->user_id = $request['user_id'];
 		$comment->save();
-		return redirect('/news_post/'.$request->id);
+		
+		return array('success' => 'true');
+	}
+	
+	public function deleteComment(request $request) {
+		Comment::Find($request['id'])->delete();
+		return array('success' => 'true');
 	}
 }

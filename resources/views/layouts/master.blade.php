@@ -17,7 +17,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ URL::asset('/css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
-
+	<script src="https://use.fontawesome.com/0d3a2260ec.js"></script>
 
     <!-- Scripts -->
     <script>
@@ -97,6 +97,9 @@
 
 <!-- Scripts -->
 <script src="/js/app.js"></script>
+<script type="text/javascript" src="{{ asset('/js/posts/comments.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/js/project_admin/main.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/js/admin/main.js') }}"></script>
 </body>
 </html>
 
