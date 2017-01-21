@@ -1,0 +1,104 @@
+body {
+  padding-top: 50px;
+  font-family: Roboto;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.form-control:focus { /* Bootstrap form highlight color while typing */
+  border-color: #FF0000;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+
+/* 
+Light Orange #ffe7c9 
+	  Orange #ff9000
+	  Red 	 #c93d3d
+Light Red  #c97474
+*/ 
+
+/* Navbar */
+.navbar {
+	background-color: #ffe7c9; 
+	border-color: white; /* Border line color */
+  border-bottom-width: 5px;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+	border-color:white; /* Border line color when collapsed */
+}
+.navbar-header {
+	background-color: #ffe7c9;
+}
+.navbar-inverse .navbar-toggle { 
+    border-color: white; /* Collapsed icon nav color */
+}
+
+/* Nav links */
+.navbar-inverse .navbar-nav>li>a {
+    color: #c93d3d; 
+    font-size: 21px;
+    padding-top:22px;
+}
+.navbar-inverse .navbar-nav>li>a:hover{
+    color: black;
+}
+
+/* Title "SoftwareHerd" */
+.navbar-inverse .navbar-brand {
+    color: 	#c93d3d;
+}
+
+/* NavBar Collapsed Icon Color */
+.navbar-toggle {
+	background-color: #c93d3d;
+}
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle {
+    background-color: #c93d3d;
+}
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: #c93d3d;
+}
+
+#avatar-nav {
+  width:50px; 
+  height:auto;  
+  border-radius:50%; 
+  margin-top:1%;
+}
+@media (max-width: 1200px) { 
+  #nav-right-1200fix {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 995px) { 
+  #nav-right-1200fix {
+    padding-left: 0;
+    font-size:15px;
+    padding-right:0px;
+  }
+  #nav-1200-fix {
+    font-size:15px;
+    padding-right:0px;
+  }
+  #avatar-nav {
+    padding-left: 3px;
+  }
+}
+@media (max-width: 900px) { 
+  #avatar-nav {
+    display: none;
+  }
+}
+
+
+@media (max-width: 767px) { 
+  #nav-right-1200fix {
+    padding-left: 15px;
+  }
+}
+
+
+

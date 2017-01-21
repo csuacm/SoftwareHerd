@@ -33,7 +33,7 @@
 
 					@if($project->project_admin_user_id) 
 						<a href="/user/{{$project->project_admin_user_id}}" class="btn btn-primary btn-xs" id="see-project-button">
-							Project Admin
+							Admin
 						</a>
 					@endif
 					<a href="/members/{{ $project->id }}" class="btn btn-primary btn-xs" id="see-project-button">

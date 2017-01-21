@@ -9,7 +9,7 @@
 		        <div class="col-md-8">
 		            <div class="panel panel-default" id="outside-panel">
 
-		                <div class="panel-heading" id="project-title-panel">
+		                <div class="panel-heading" id="project-title-panel" >
 		                	<!-- Project Title -->
 							<a href="project/{{$project->id}}" id="project-title-text">{{ $project->title }}</a><br>
 		                </div>
