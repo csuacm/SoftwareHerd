@@ -46,3 +46,7 @@ a:hover{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.well {
+    margin-top: 10%;
+}
