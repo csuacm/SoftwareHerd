@@ -124,6 +124,13 @@ class ProjectController extends Controller
 	
 	public function deleteProject(request $request) {
 		$project = Project::find($request['id']);
+		foreach($project->posts as $post){
+			foreach($post->comments as $comment){
+				$comment->delete();
+			}
+			$post->delete();
+		}
+		
 		$project->delete();
 		return array('success'=>'true');
 	}

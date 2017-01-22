@@ -58,3 +58,6 @@ Route::post('/createproject', [ //new project creation
 	]);
 
 Route::get('/home', 'HomeController@index'); //Home route
+
+Route::get('/admin', 'AdminController@getAdmin')->middleware('admin');
+Route::post('/deleteUser', 'UserController@deleteUser')->middleware('admin');

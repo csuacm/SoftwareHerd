@@ -128,6 +128,7 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('/js/project_admin/main.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/project_admin/members.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/project_admin/posts.js') }}"></script>
 @endsection

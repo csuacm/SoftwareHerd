@@ -25,6 +25,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+	<script src="/js/app.js"></script>
 </head>
 
 <!-- NAV BAR -->
@@ -73,6 +74,9 @@
 					<li><a href="/about" id="nav-1200-fix">About</a></li>
 					<li><a href="/contact" id="nav-1200-fix">Contact</a></li>
 					<li><a href="/project_library" id="nav-1200-fix">Browse Projects</a></li>
+					@if(Auth::User()->isSuperAdmin())
+						<li><a href="/admin" id="nav-1200-fix">Admin</a></li>
+					@endif
 				</ul>
 				<ul class="nav navbar-nav navbar-right" id="">
 					<li><a href="\new_project" id="nav-right-1200fix" id="nav-1200-fix">New Project</a></li>
@@ -96,10 +100,7 @@
 
 
 <!-- Scripts -->
-<script src="/js/app.js"></script>
 <script type="text/javascript" src="{{ asset('/js/posts/comments.js') }}"></script>
-<script type="text/javascript" src="{{ asset('/js/project_admin/main.js') }}"></script>
-<script type="text/javascript" src="{{ asset('/js/admin/main.js') }}"></script>
 </body>
 </html>
 
