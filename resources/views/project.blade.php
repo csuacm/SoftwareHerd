@@ -6,7 +6,7 @@
 @can('admin', $project)
 <div class="container">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-12">
 			<div class="panel panel-default" id="outside-panel">
 				<div class="panel-body" id="project-body-panel">
 					<a href="/project_admin/{{$project->id}}" class="btn btn-primary btn-s" id="see-project-button">
@@ -22,7 +22,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-12">
 			<div class="panel panel-default" id="outside-panel">
 				<div class="panel-heading" id="project-title-panel">
 					<span id="project-title-text">{{ $project->title }}</span><br>
@@ -51,7 +51,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-12">
 			<div class="panel panel-default" id="info-outside-panel-small">
 				<div class="panel-heading" id="info-project-title-panel">
 					<span id="info-project-title-text">Info</span><br>
@@ -88,7 +88,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-12">
 			<div class="panel panel-default" id="outside-panel-small">
 				<div class="panel-heading" id="project-title-panel">
 					<span id="project-title-text">Membership Status</span><br>

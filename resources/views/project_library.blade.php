@@ -4,9 +4,8 @@
 
 	@foreach ($projects->sortByDesc('created_at') as $project)
 
-		<div class="container">
 		    <div class="row">
-		        <div class="col-md-8">
+		        <div class="col-md-12">
 		            <div class="panel panel-default" id="outside-panel">
 
 		                <div class="panel-heading" id="project-title-panel" >
@@ -22,7 +21,7 @@
 		            </div>
 		        </div>
 		    </div>
-		</div>	
+
 
 	@endforeach 
 

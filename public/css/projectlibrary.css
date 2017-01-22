@@ -23,3 +23,7 @@ Light Red	 #c97474
 	background-color: #ff9000;
 	border-color: white;
 }
+
+.row {
+	text-align: center;
+}

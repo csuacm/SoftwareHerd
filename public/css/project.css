@@ -60,3 +60,9 @@ Light Red	 #c97474
 	margin-bottom: 10%;
 }
 
+.panel-heading {
+	text-align: center;
+}
+.panel-body {
+	text-align: center;
+}
