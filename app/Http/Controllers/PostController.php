@@ -41,7 +41,11 @@ class PostController extends Controller
 	}
 	
 	public function deletePost(request $request) {
-		Post::Find($request['id'])->delete();
+		$post = Post::Find($request['id']);
+		foreach($post->comments as $comment)
+			$comment->delete();
+			
+		$post->delete();
 		return array('success' => 'true');
 	}
 }
