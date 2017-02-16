@@ -7,3 +7,7 @@ We have a google drive explaining how to get set up, a task listing page, and al
 Slack:
 
 http://csuacm.slack.com
+
+Google Drive :
+
+https://docs.google.com/document/d/1sDxKmBe_Ohdbi0u522vp-jAflqAPGOio2FFJsUg5G9c/edit?usp=sharing
